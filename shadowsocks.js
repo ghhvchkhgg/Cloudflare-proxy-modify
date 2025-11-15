@@ -614,47 +614,93 @@ function getSimplePage(request) {
     const url = request.headers.get('Host');
     const baseUrl = `https://${url}`;
     const html = `<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Shadowsocks Cloudflare Service</title>
+<title>History of the United Kingdom</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    background:linear-gradient(135deg,#7dd3ca 0%,#a17ec4 100%);
-    height:100vh;display:flex;align-items:center;justify-content:center;
-    color:#333;overflow:hidden;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#222;
+    padding:20px;
 }
 .container{
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.97);
+    backdrop-filter:blur(8px);
     border-radius:20px;
     padding:40px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.1);
-    max-width:800px;
-    width:95%;
-    text-align:left;
+    max-width:900px;
+    width:100%;
+    box-shadow:0 30px 60px rgba(0,0,0,0.25);
+    animation:fadeIn 0.8s ease;
 }
-h1{
-    font-size:2rem;
-    margin-bottom:20px;
-    color:#2d3748;
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+h1{text-align:center;font-size:2.4rem;margin-bottom:25px;color:#1e3c72;}
+h2{color:#2a5298;margin-top:25px;margin-bottom:10px;font-size:1.4rem;}
+p{margin:12px 0;line-height:1.7;font-size:1rem;color:#333;}
+.section{
+    background:#f7f9fc;
+    padding:20px;
+    border-radius:12px;
+    margin-top:20px;
+    border-left:5px solid #2a5298;
+}
+ul{margin:10px 0 10px 20px;}
+.footer{
+    margin-top:30px;
     text-align:center;
+    font-size:0.9rem;
+    color:#555;
 }
-p{margin:12px 0;line-height:1.6;}
-@media (max-width:768px){.container{padding:20px;}}
 </style>
 </head>
 <body>
 <div class="container">
-<h1>英国简史（Brief History of the United Kingdom）</h1>
-<p>英国的历史可以追溯到古代不列颠时期，当时凯尔特人居住在岛上。公元 43 年，罗马帝国入侵并统治英格兰大部分地区，其文化影响延续至今。</p>
-<p>罗马撤离后，盎格鲁-撒克逊人和维京人的不断迁入重塑了英国的早期社会结构。1066 年诺曼征服则成为英国历史的重大转折点，影响了英国的法律、语言与贵族体系。</p>
-<p>中世纪英国逐步形成中央集权。宗教改革让英国脱离罗马教廷，建立英国国教会。17 世纪的光荣革命确立了议会君主立宪制，为现代英国政治奠定基础。</p>
-<p>18 至 19 世纪的工业革命让英国成为全球最早的工业化国家，也是世界上最大的殖民帝国，被称为“日不落帝国”。</p>
-<p>20 世纪的两次世界大战削弱了英国的国际影响力，但英国依然是重要的全球大国，由英格兰、苏格兰、威尔士和北爱尔兰组成。</p>
+<h1>Brief History of the United Kingdom</h1>
+
+<div class="section">
+<h2>1. Ancient Britain & Roman Era</h2>
+<p>The earliest known inhabitants of Britain were Celtic tribes. In 43 AD, the Roman Empire invaded and established control over much of England, leaving a lasting legacy in architecture, roads, language, and governance.</p>
+</div>
+
+<div class="section">
+<h2>2. Anglo-Saxon Period & Viking Influence</h2>
+<p>After the Roman withdrawal, Germanic tribes such as the Angles, Saxons, and Jutes settled in Britain, forming early English kingdoms. From the 8th century onward, Viking invasions reshaped political borders and cultural development.</p>
+</div>
+
+<div class="section">
+<h2>3. The Norman Conquest (1066)</h2>
+<p>The Norman Conquest marked a major turning point in British history. William the Conqueror defeated King Harold at the Battle of Hastings, introducing Norman French culture, feudalism, and reforms that strongly influenced English law and aristocracy.</p>
+</div>
+
+<div class="section">
+<h2>4. Middle Ages & Early Modern Era</h2>
+<p>England developed a stronger central government, with events such as the signing of the Magna Carta (1215) laying foundations for constitutional governance. The English Reformation in the 16th century separated England from the Roman Catholic Church, establishing the Church of England.</p>
+</div>
+
+<div class="section">
+<h2>5. The Glorious Revolution & Constitutional Monarchy</h2>
+<p>In 1688, the Glorious Revolution affirmed parliamentary supremacy over the monarchy, shaping the modern political system of the UK as a constitutional monarchy with a representative parliament.</p>
+</div>
+
+<div class="section">
+<h2>6. Industrial Revolution & British Empire</h2>
+<p>From the 18th to 19th centuries, Britain became the birthplace of the Industrial Revolution, leading global advancements in manufacturing, engineering, and science. During this period, Britain built the largest empire in history, known as the "Empire on which the sun never sets."</p>
+</div>
+
+<div class="section">
+<h2>7. The Modern United Kingdom</h2>
+<p>The 20th century saw the decline of the British Empire after two world wars, but the UK remained a significant world power. Today, the United Kingdom consists of England, Scotland, Wales, and Northern Ireland, maintaining strong cultural, political, and economic influence worldwide.</p>
+</div>
+
+<div class="footer">Made for display testing — United Kingdom Historical Overview</div>
 </div>
 </body>
 </html>`;
@@ -667,4 +713,5 @@ p{margin:12px 0;line-height:1.6;}
         },
     });
 }
+
 
