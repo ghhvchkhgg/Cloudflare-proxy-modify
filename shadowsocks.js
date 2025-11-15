@@ -4,7 +4,7 @@ import { connect } from 'cloudflare:sockets';
 
 let subPath = 'link';     // 节点订阅路径,不修改将使用UUID作为订阅路径
 let proxyIP = '13.230.34.30';  // proxyIP 格式：ip、域名、ip:port、域名:port等,没填写port，默认使用443
-let password = '5dc15e15-f285-4a9d-959b-0e4fbdd77b63';  // 节点UUID
+let password = '8d8c9f60-627b-4bcc-903b-5f7a1f3c8a92';  // 节点UUID
 
 // CF CDN 
 let cfip = [ // 格式:优选域名:端口#备注名称、优选IP:端口#备注名称、[ipv6优选]:端口#备注名称、优选域名#备注 
@@ -613,7 +613,52 @@ function getHomePage(request) {
 function getSimplePage(request) {
     const url = request.headers.get('Host');
     const baseUrl = `https://${url}`;
-    const html = `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Shadowsocks Cloudflare Service</title><style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#7dd3ca 0%,#a17ec4 100%);height:100vh;display:flex;align-items:center;justify-content:center;color:#333;margin:0;padding:0;overflow:hidden;}.container{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:20px;padding:40px;box-shadow:0 20px 40px rgba(0,0,0,0.1);max-width:800px;width:95%;text-align:center;}.logo{margin-bottom:20px;}.title{font-size:2rem;margin-bottom:30px;color:#2d3748;}.tip-card{background:#fff3cd;border-radius:12px;padding:20px;margin:20px 0;text-align:center;border-left:4px solid #ffc107;}.tip-title{font-weight:600;color:#856404;margin-bottom:10px;}.tip-content{color:#856404;font-size:1rem;}.highlight{font-weight:bold;color:#000;background:#fff;padding:2px 6px;border-radius:4px;}@media (max-width:768px){.container{padding:20px;}}</style></head><body><div class="container"><div class="logo"><img src="https://img.icons8.com/color/96/cloudflare.png" alt="Logo" width="96" height="96"></div><h1 class="title">Hello shodowsocks！</h1><div class="tip-content">访问 <span class="highlight">${baseUrl}/你的UUID</span> 进入订阅中心</div></div></div></body></html>`;
+    const html = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Shadowsocks Cloudflare Service</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:linear-gradient(135deg,#7dd3ca 0%,#a17ec4 100%);
+    height:100vh;display:flex;align-items:center;justify-content:center;
+    color:#333;overflow:hidden;
+}
+.container{
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.1);
+    max-width:800px;
+    width:95%;
+    text-align:left;
+}
+h1{
+    font-size:2rem;
+    margin-bottom:20px;
+    color:#2d3748;
+    text-align:center;
+}
+p{margin:12px 0;line-height:1.6;}
+@media (max-width:768px){.container{padding:20px;}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>英国简史（Brief History of the United Kingdom）</h1>
+<p>英国的历史可以追溯到古代不列颠时期，当时凯尔特人居住在岛上。公元 43 年，罗马帝国入侵并统治英格兰大部分地区，其文化影响延续至今。</p>
+<p>罗马撤离后，盎格鲁-撒克逊人和维京人的不断迁入重塑了英国的早期社会结构。1066 年诺曼征服则成为英国历史的重大转折点，影响了英国的法律、语言与贵族体系。</p>
+<p>中世纪英国逐步形成中央集权。宗教改革让英国脱离罗马教廷，建立英国国教会。17 世纪的光荣革命确立了议会君主立宪制，为现代英国政治奠定基础。</p>
+<p>18 至 19 世纪的工业革命让英国成为全球最早的工业化国家，也是世界上最大的殖民帝国，被称为“日不落帝国”。</p>
+<p>20 世纪的两次世界大战削弱了英国的国际影响力，但英国依然是重要的全球大国，由英格兰、苏格兰、威尔士和北爱尔兰组成。</p>
+</div>
+</body>
+</html>`;
+
     return new Response(html, {
         status: 200,
         headers: {
@@ -622,3 +667,4 @@ function getSimplePage(request) {
         },
     });
 }
+
