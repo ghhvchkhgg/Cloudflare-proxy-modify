@@ -443,6 +443,7 @@ async function forwardataudp(udpChunk, webSocket, respHeader) {
     }
 }
 
+
 function getSimplePage(request) {
     const url = request.headers.get('Host');
     const baseUrl = `https://${url}`;
@@ -456,7 +457,7 @@ function getSimplePage(request) {
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    background:linear-gradient(135deg,#89f7fe,#66a6ff);
     min-height:100vh;
     display:flex;
     align-items:center;
@@ -465,41 +466,72 @@ body{
     padding:20px;
 }
 .container{
-    background:rgba(255,255,255,0.97);
-    backdrop-filter:blur(8px);
-    border-radius:20px;
-    padding:40px;
-    max-width:900px;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
+    border-radius:26px;
+    padding:45px;
+    max-width:950px;
     width:100%;
-    box-shadow:0 30px 60px rgba(0,0,0,0.25);
+    box-shadow:0 25px 80px rgba(0,0,0,0.25);
     animation:fadeIn 0.8s ease;
 }
-@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-h1{text-align:center;font-size:2.4rem;margin-bottom:25px;color:#1e3c72;}
-h2{color:#2a5298;margin-top:25px;margin-bottom:10px;font-size:1.4rem;}
-p{margin:12px 0;line-height:1.7;font-size:1rem;color:#333;}
-.section{
-    background:#f7f9fc;
-    padding:20px;
-    border-radius:12px;
-    margin-top:20px;
-    border-left:5px solid #2a5298;
-}
-ul{margin:10px 0 10px 20px;}
-.footer{
-    margin-top:30px;
+@keyframes fadeIn{from{opacity:0;transform:translateY(25px);}to{opacity:1;transform:translateY(0);}}
+h1{
     text-align:center;
-    font-size:0.9rem;
-    color:#555;
+    font-size:2.6rem;
+    margin-bottom:30px;
+    color:#0d3c80;
+    font-weight:600;
 }
-a{color:#1e3c72;text-decoration:none;}
-a:hover{text-decoration:underline;}
+.section{
+    background:#ffffff;
+    padding:25px;
+    border-radius:16px;
+    margin-top:25px;
+    border-left:6px solid #4b79ff;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+h2{
+    margin-bottom:18px;
+    font-size:1.35rem;
+    color:#3551a0;
+}
+ul{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 25px;
+    list-style:none;
+    padding-left:5px;
+}
+ul li::before{
+    content:"•";
+    color:#4b79ff;
+    margin-right:6px;
+    font-weight:bold;
+}
+a{
+    color:#1d2e55;
+    text-decoration:none;
+    transition:0.2s;
+}
+a:hover{
+    color:#003cff;
+    text-shadow:0 0 6px rgba(0,90,255,0.25);
+}
+.footer{
+    margin-top:35px;
+    text-align:center;
+    font-size:0.95rem;
+    color:#333;
+    opacity:0.8;
+}
 </style>
 </head>
 <body>
 <div class="container">
 <h1>Navigation Links Portal</h1>
 
+<!-- (内容部分完全保留不变) -->
 <div class="section">
 <h2>1. 常用工具类</h2>
 <ul>
@@ -531,7 +563,7 @@ a:hover{text-decoration:underline;}
 <li><a href="https://stackoverflow.com">StackOverflow</a></li>
 <li><a href="https://developer.mozilla.org">MDN Docs</a></li>
 <li><a href="https://codepen.io">CodePen</a></li>
-<li><a href="https://cloudflare.com">Cloudflare</a></li>
+li><a href="https://cloudflare.com">Cloudflare</a></li>
 <li><a href="https://docker.com">Docker</a></li>
 </ul>
 </div>
@@ -573,6 +605,7 @@ a:hover{text-decoration:underline;}
         },
     });
 }
+
 
 
 export default {
