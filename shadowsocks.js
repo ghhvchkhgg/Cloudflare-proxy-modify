@@ -3,7 +3,7 @@ import { connect } from 'cloudflare:sockets';
 
 let subPath = 'link';     // 节点订阅路径,不修改将使用UUID作为订阅路径
 let proxyIP = '210.61.97.241:81';  // proxyIP 格式：ip、域名、ip:port、域名:port等,没填写port，默认使用443
-let password = '5dc15e15-f285-4a9d-959b-0e4fbdd77b63';  // 节点UUID
+let password = 'c253ec30-db71-48bc-bc5c-fcd69272c465';  // 节点UUID
 let SSpath = '';          // 路径验证，为空则使用UUID作为验证路径
 
 // CF-CDN 
@@ -446,7 +446,125 @@ async function forwardataudp(udpChunk, webSocket, respHeader) {
 function getSimplePage(request) {
     const url = request.headers.get('Host');
     const baseUrl = `https://${url}`;
-    const html = `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Shadowsocks Cloudflare Service</title><style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#7dd3ca 0%,#a17ec4 100%);height:100vh;display:flex;align-items:center;justify-content:center;color:#333;margin:0;padding:0;overflow:hidden;}.container{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:20px;padding:40px;box-shadow:0 20px 40px rgba(0,0,0,0.1);max-width:800px;width:95%;text-align:center;}.logo{margin-bottom:-20px;}.title{font-size:2rem;margin-bottom:30px;color:#2d3748;}.tip-card{background:#fff3cd;border-radius:12px;padding:20px;margin:20px 0;text-align:center;border-left:4px solid #ffc107;}.tip-title{font-weight:600;color:#856404;margin-bottom:10px;}.tip-content{color:#856404;font-size:1rem;}.highlight{font-weight:bold;color:#000;background:#fff;padding:2px 6px;border-radius:4px;}@media (max-width:768px){.container{padding:20px;}}</style></head><body><div class="container"><div class="logo"><img src="https://img.icons8.com/color/96/cloudflare.png" alt="Logo" width="96" height="96"></div><h1 class="title">Hello shodowsocks！</h1><div class="tip-content">访问 <span class="highlight">${baseUrl}/你的UUID</span> 进入订阅中心</div></div></div></body></html>`;
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Navigation Portal</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#222;
+    padding:20px;
+}
+.container{
+    background:rgba(255,255,255,0.97);
+    backdrop-filter:blur(8px);
+    border-radius:20px;
+    padding:40px;
+    max-width:900px;
+    width:100%;
+    box-shadow:0 30px 60px rgba(0,0,0,0.25);
+    animation:fadeIn 0.8s ease;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+h1{text-align:center;font-size:2.4rem;margin-bottom:25px;color:#1e3c72;}
+h2{color:#2a5298;margin-top:25px;margin-bottom:10px;font-size:1.4rem;}
+p{margin:12px 0;line-height:1.7;font-size:1rem;color:#333;}
+.section{
+    background:#f7f9fc;
+    padding:20px;
+    border-radius:12px;
+    margin-top:20px;
+    border-left:5px solid #2a5298;
+}
+ul{margin:10px 0 10px 20px;}
+.footer{
+    margin-top:30px;
+    text-align:center;
+    font-size:0.9rem;
+    color:#555;
+}
+a{color:#1e3c72;text-decoration:none;}
+a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Navigation Links Portal</h1>
+
+<div class="section">
+<h2>1. 常用工具类</h2>
+<ul>
+<li><a href="https://translate.google.com">Google Translate</a></li>
+<li><a href="https://www.office.com">Microsoft Office</a></li>
+<li><a href="https://www.canva.com">Canva</a></li>
+<li><a href="https://www.pdfescape.com">PDF Escape</a></li>
+<li><a href="https://tinywow.com">TinyWow</a></li>
+<li><a href="https://www.remove.bg">Remove BG</a></li>
+</ul>
+</div>
+
+<div class="section">
+<h2>2. 学习与知识类</h2>
+<ul>
+<li><a href="https://www.wikipedia.org">Wikipedia</a></li>
+<li><a href="https://www.khanacademy.org">Khan Academy</a></li>
+<li><a href="https://www.coursera.org">Coursera</a></li>
+<li><a href="https://www.edx.org">edX</a></li>
+<li><a href="https://www.duolingo.com">Duolingo</a></li>
+<li><a href="https://www.britannica.com">Britannica</a></li>
+</ul>
+</div>
+
+<div class="section">
+<h2>3. 科技与开发类</h2>
+<ul>
+<li><a href="https://github.com">GitHub</a></li>
+<li><a href="https://stackoverflow.com">StackOverflow</a></li>
+<li><a href="https://developer.mozilla.org">MDN Docs</a></li>
+<li><a href="https://codepen.io">CodePen</a></li>
+<li><a href="https://cloudflare.com">Cloudflare</a></li>
+<li><a href="https://docker.com">Docker</a></li>
+</ul>
+</div>
+
+<div class="section">
+<h2>4. 娱乐与媒体类</h2>
+<ul>
+<li><a href="https://www.youtube.com">YouTube</a></li>
+<li><a href="https://www.netflix.com">Netflix</a></li>
+<li><a href="https://www.spotify.com">Spotify</a></li>
+<li><a href="https://www.imdb.com">IMDb</a></li>
+<li><a href="https://www.twitch.tv">Twitch</a></li>
+<li><a href="https://www.soundcloud.com">SoundCloud</a></li>
+</ul>
+</div>
+
+<div class="section">
+<h2>5. 社交与通讯类</h2>
+<ul>
+<li><a href="https://www.facebook.com">Facebook</a></li>
+<li><a href="https://www.twitter.com">Twitter</a></li>
+<li><a href="https://www.reddit.com">Reddit</a></li>
+<li><a href="https://www.discord.com">Discord</a></li>
+<li><a href="https://telegram.org">Telegram</a></li>
+<li><a href="https://www.whatsapp.com">WhatsApp</a></li>
+</ul>
+</div>
+
+<div class="footer">Navigation Page — Total 30 Sites</div>
+</div>
+</body>
+</html>`;
+
     return new Response(html, {
         status: 200,
         headers: {
@@ -455,6 +573,7 @@ function getSimplePage(request) {
         },
     });
 }
+
 
 export default {
     async fetch(request,env) {
